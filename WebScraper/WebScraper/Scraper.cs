@@ -7,9 +7,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using HtmlAgilityPack;
-using WebScraper.App_Data;
 using System.Net;
 using System.Web;
+using WebScraper.DAL;
+using WebScraper.Models;
 
 namespace WebScraper
 {

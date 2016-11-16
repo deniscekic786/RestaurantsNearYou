@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
@@ -24,7 +25,6 @@
     <MapFileExtensions>true</MapFileExtensions>
     <ApplicationRevision>0</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
@@ -74,11 +74,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Address.cs" />
-    <Compile Include="App_Data\GeoData.cs" />
-    <Compile Include="App_Data\Restaurant.cs" />
-    <Compile Include="App_Data\RestaurantRepo.cs" />
-    <Compile Include="App_Data\RestaurantScrapedDb.cs" />
+    <Compile Include="Models\Address.cs" />
+    <Compile Include="Models\GeoData.cs" />
+    <Compile Include="Models\Restaurant.cs" />
+    <Compile Include="DAL\RestaurantRepo.cs" />
+    <Compile Include="DAL\RestaurantScrapedDb.cs" />
     <Compile Include="Document.cs" />
     <Compile Include="Element.cs" />
     <Compile Include="ElementBuilder.cs" />
@@ -107,6 +107,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="App_Data\RestaurantsDb.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="App_Data\RestaurantsDb_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>RestaurantsDb.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

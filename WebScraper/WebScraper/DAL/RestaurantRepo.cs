@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
 using System.Linq;
-using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using WebScraper.Models;
 
-namespace WebScraper.App_Data
+namespace WebScraper.DAL
 {
     public class RestaurantRepo
     {

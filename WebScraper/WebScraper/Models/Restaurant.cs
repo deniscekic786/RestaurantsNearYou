@@ -1,13 +1,8 @@
-namespace WebScraper.App_Data
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace WebScraper.Models
 {
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
-
-
-
     [Table("Restaurant")]
     public partial class Restaurant
     {

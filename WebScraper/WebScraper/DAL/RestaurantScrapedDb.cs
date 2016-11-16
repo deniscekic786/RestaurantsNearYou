@@ -1,10 +1,8 @@
-namespace WebScraper.App_Data
-{
-    using System;
-    using System.Data.Entity;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Linq;
+using System.Data.Entity;
+using WebScraper.Models;
 
+namespace WebScraper.DAL
+{
     public partial class RestaurantScrapedDb : DbContext
     {
         public RestaurantScrapedDb()

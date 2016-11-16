@@ -1,11 +1,8 @@
-namespace WebScraper.App_Data
-{
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel.DataAnnotations.Schema;
-    using System.Data.Entity.Spatial;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
+namespace WebScraper.Models
+{
     [Table("GeoData")]
     public partial class GeoData
     {
