@@ -1,0 +1,22 @@
+﻿@using (Html.BeginForm("Restaurants", "Search", FormMethod.Get))
+{
+
+    <div class="top-container row">
+        <div class="container">
+            <div class="col-lg-5">
+                <label for="type">Search near by for</label>
+                <select id="type">
+                    <option value="1">Restaurants</option>
+                </select>
+            </div>
+            <div class="col-lg-5">
+                <div class="ui-widget">
+                    <label for="location">Location</label>
+                    <input id="location" type="text" />
+                </div>
+            </div>
+            <input name="state" type="hidden" id="state" />
+            <input name="city" type="hidden" id="city" />
+        </div>
+    </div>
+}

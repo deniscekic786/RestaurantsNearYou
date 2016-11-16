@@ -1,0 +1,82 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+
+@model IPagedList<PlaceNearYouApp.Models.Restaurant>
+@{
+    ViewBag.Title = "Restaurants";
+}
+
+<h2>Restaurants</h2>
+@Html.Partial("_SearchPartial")
+@foreach (var restaurant in Model)
+{
+    <div class="restaurant-container clearfix">
+        <div class="col-lg-4">
+            <div>
+                <a href="@restaurant.ImageReference" class="js-analytics-click" data-analytics-label="biz-photo">
+                    <img class="photo-box-img" height="90" src="@restaurant.ImageSource" width="90">
+                </a>
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <div>@restaurant.Name</div>
+            <div>@restaurant.Category</div>
+        </div>
+        <div class="col-lg-4">
+            <div>@restaurant.Address.CityStatePostal</div>
+            <div>@restaurant.Address.Street</div>
+            <div>@restaurant.PhoneNumber</div>
+        </div>
+    </div>
+
+}
+<div class="row">
+    <div class="container">
+            <div class="pager">
+                Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+                @Html.PagedListPager(Model, page => Url.Action("Restaurants",
+    new { page, sortOrder = ViewBag.CurrentSort, currentFilter = ViewBag.CurrentFilter, state = ViewBag.State, city = ViewBag.City, @class="number" }))
+            </div>
+        </div>
+    </div>
+@section scripts {
+    <script type="text/javascript">
+        function findRestaurants(data) {
+            var splitter = data.split(",");
+            var state = splitter[0].replace(" ","");
+            var city = splitter[1].replace(" ", "");
+            $("#state").val(state);
+            $("#city").val(city);
+            $("form").submit();
+            console.log(city); console.log(state);
+        }
+        function getLocations() {
+            var items = [];
+            $.getJSON('@Url.Action("Locations", "Search")',
+                function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        items.push(data[i].State + ", " + data[i].City);
+                    }
+                });
+            return items;
+        }
+        $(function () {
+            var items = getLocations();
+            console.log(items);
+            $("#location")
+                .autocomplete({
+                    minLength: 2,
+                    source: function(req, response) {
+                        var results = $.ui.autocomplete.filter(items, req.term);
+                        response(results.slice(0, 9)); //for getting 5 results
+                    },
+                    select: function (event, ui) {
+                        $("#location").val(ui.item.label);
+                        var state = $("#location").val();
+                        console.log(state);
+                        findRestaurants(state);
+                    }
+                });
+        });
+    </script>
+}

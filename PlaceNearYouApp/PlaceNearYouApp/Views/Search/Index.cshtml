@@ -1,0 +1,51 @@
+﻿@using PagedList;
+@using PagedList.Mvc
+@model IPagedList<PlaceNearYouApp.Models.Restaurant>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@Html.Partial("_SearchPartial")
+
+@section scripts {
+    <script type="text/javascript">
+        function findRestaurants(data) {
+            var splitter = data.split(",");
+            var state = splitter[0].replace(" ","");
+            var city = splitter[1].replace(" ", "");
+            $("#state").val(state);
+            $("#city").val(city);
+            $("form").submit();
+            console.log(city); console.log(state);
+        }
+        function getLocations() {
+            var items = [];
+            $.getJSON('@Url.Action("Locations", "Search")',
+                function(data) {
+                    for (var i = 0; i < data.length; i++) {
+                        items.push(data[i].State + ", " + data[i].City);
+                    }
+                });
+            return items;
+        }
+        $(function () {
+            var items = getLocations();
+            console.log(items);
+            $("#location")
+                .autocomplete({
+                    minLength: 2,
+                    source: function(req, response) {
+                        var results = $.ui.autocomplete.filter(items, req.term);
+                        response(results.slice(0, 9)); //for getting 5 results
+                    },
+                    select: function (event, ui) {
+                        $("#location").val(ui.item.label);
+                        var state = $("#location").val();
+                        console.log(state);
+                        findRestaurants(state);
+                    }
+                });
+        });
+    </script>
+}
