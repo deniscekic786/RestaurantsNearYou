@@ -11,7 +11,7 @@ PlacesNearYouApp - searches for restaurants based on the users input of state an
 WebScraper - Scrapes yelp pages based on state and city query string parameters.
 
 ####How do I use it? 
-[Places near you application]()
+[Places near you application](https://github.com/deniscekic786/RestaurantsNearYou/blob/master/PlaceNearYouApp/README.md)
 
 [Web scraper application]()
 
