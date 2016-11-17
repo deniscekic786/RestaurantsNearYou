@@ -25,9 +25,9 @@ The application scrapes yelp restaurants based on location and stores the result
 
 ---
 ####Core classes
-- [Scraper]()
-- [Html document fetcher] ()
-- [Linq Zip method extention] ()
+- [Scraper](https://github.com/deniscekic786/RestaurantsNearYou/blob/master/WebScraper/WebScraper/Scraper.cs)
+- [Html document fetcher] (https://github.com/deniscekic786/RestaurantsNearYou/blob/master/WebScraper/WebScraper/Document.cs)
+- [Linq Zip method extention] (https://github.com/deniscekic786/RestaurantsNearYou/blob/master/WebScraper/WebScraper/ZipGeneric.cs)
 
 
 
