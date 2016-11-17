@@ -17,7 +17,7 @@ I Created this application prototype to demonstrate my understanding of creating
 
 ---
 ####Core classes
-- [Geo Location](https://github.com/deniscekic786/FifaPlayersApp/blob/master/FifaFanApp/FifaFanApp/BLL/ImageProcessor.cs)
+- [Geo Location](https://github.com/deniscekic786/RestaurantsNearYou/blob/master/PlaceNearYouApp/PlaceNearYouApp/BLL/GeoLocation.cs)
 
 
 
