@@ -19,7 +19,5 @@ I Created this application prototype to demonstrate my understanding of creating
 ####Core classes
 - [Geo Location](https://github.com/deniscekic786/RestaurantsNearYou/blob/master/PlaceNearYouApp/PlaceNearYouApp/BLL/GeoLocation.cs)
 - [Geo Location Helper](https://github.com/deniscekic786/RestaurantsNearYou/blob/master/PlaceNearYouApp/PlaceNearYouApp/Extentions/Helpers.cs)
-
-
-
+- [Linq Query Box Distance](https://github.com/deniscekic786/RestaurantsNearYou/edit/master/PlaceNearYouApp/PlaceNearYouApp/DAL/RestaurantRepository.cs)
 
